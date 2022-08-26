@@ -1,18 +1,17 @@
-import styled from '@emotion/styled'
 import { Mail, Notifications, Pets } from '@mui/icons-material'
 import {
   AppBar,
   Avatar,
   Badge,
+  Box,
   InputBase,
   Menu,
   MenuItem,
+  styled,
   Toolbar,
   Typography
 } from '@mui/material'
-import { Box } from '@mui/system'
 import React, { useState } from 'react'
-
 const StyledToolbar = styled(Toolbar)({
   display: 'flex',
   justifyContent: 'space-between'
@@ -39,7 +38,7 @@ const UserBox = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   gap: '10px',
   [theme.breakpoints.up('sm')]: {
-    display: 'nne'
+    display: 'none'
   }
 }))
 
@@ -53,13 +52,13 @@ export const Navbar = () => {
         </Typography>
         <Pets sx={{ display: { xs: 'block', sm: 'none' } }} />
         <Search>
-          <InputBase placeholder='search' />
+          <InputBase placeholder='search...' />
         </Search>
         <Icons>
           <Badge badgeContent={4} color='error'>
-            <Mail color='action' />
+            <Mail />
           </Badge>
-          <Badge badgeContent={4} color='error'>
+          <Badge badgeContent={2} color='error'>
             <Notifications />
           </Badge>
           <Avatar
@@ -79,7 +78,7 @@ export const Navbar = () => {
       <Menu
         id='demo-positioned-menu'
         aria-labelledby='demo-positioned-button'
-        open={true}
+        open={open}
         onClose={e => setOpen(false)}
         anchorOrigin={{
           vertical: 'top',
